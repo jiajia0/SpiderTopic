@@ -91,6 +91,9 @@ def zhihu_login(account, password):
     response_text = session.post(post_url, data=post_data, headers=header)
     session.cookies.save()
 
-zhihu_login("13639827123", "591352711")
+cuuount = input('手机号码登录：')
+password = input('密码：')
+
+zhihu_login(cuuount, password)
 get_index()
 is_login()
