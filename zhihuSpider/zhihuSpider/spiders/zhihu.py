@@ -110,7 +110,7 @@ class ZhihuSpider(scrapy.Spider):
 
         if xsrf:
             post_url = "https://www.zhihu.com/login/phone_num"
-            phont_num = input('请输出手机号码：')
+            phont_num = input('请输入手机号码：')
             password = input("请输入密码：")
             phont_num = phont_num
             password = password
