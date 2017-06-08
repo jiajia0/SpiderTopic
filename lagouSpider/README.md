@@ -1,0 +1,5 @@
+ - 利用scrapy框架中的crawlSpider模块，对[拉钩](https://www.lagou.com/)进行全站爬取。
+ - 提取出相关的工作信息存入mysql数据库中。
+ - 使用lagou_job.sql创建数据库。
+ - 运行main.py文件。
+ - 需要注意，该爬虫没有做相应的反爬虫处理，爬取过程中ip地址可能会被记录，导致无法爬取。
