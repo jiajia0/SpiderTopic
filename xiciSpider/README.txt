@@ -1,0 +1,5 @@
+ - 使用requests库对[西刺国内高匿代理IP](http://www.xicidaili.com/nn/)进行爬取。
+ - 采用Mysql数据库进行存放数据。
+ - 运行xici_proxy_ip.sql。
+ - 调用crawl_ips可以进行爬取存放。
+ - get_random_ip方法，会从数据库中随机获取IP，并进行测试是否可用，可用将会返回格式【http://123456789:808】，不可用从数据库删除并继续调用。
