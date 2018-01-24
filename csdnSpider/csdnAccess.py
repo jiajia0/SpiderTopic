@@ -6,6 +6,8 @@ import time
 import crawl_xici_ip
 import multiprocessing
 
+# 个人用户名
+username = 'test'
 
 # casn刷博客访问量，多了会封号，被警告之后就没有用过了。。。
 
@@ -16,7 +18,7 @@ class getSomething:
         self.agent = UserAgent()
         url_list = self.parse()
 
-        self.saveToFile(url_list, self.startReadNum('http://blog.csdn.net/leafage_M'))
+        self.saveToFile(url_list, self.startReadNum('http://blog.csdn.net/' + username))
 
         for i in range(num):
             current_url = 'http://blog.csdn.net' + random.sample(url_list, 1)[0][1]
@@ -27,7 +29,7 @@ class getSomething:
                 pass
 
         url_list = self.parse()
-        self.saveToFile(url_list, self.startReadNum('http://blog.csdn.net/leafage_M'))
+        self.saveToFile(url_list, self.startReadNum('http://blog.csdn.net/' + username))
 
     def parse(self):
         url_list = []
@@ -76,5 +78,5 @@ class getSomething:
 if __name__ == '__main__':
 
     for i in range(1, 2):
-        p = multiprocessing.Process(target=getSomething, args=('http://blog.csdn.net/leafage_M/article/list/', 2))
+        p = multiprocessing.Process(target=getSomething, args=('http://blog.csdn.net/' + username + '/article/list/', 2))
         p.start()
