@@ -14,8 +14,9 @@ def getCurrentCSDN():
     抓取当前的访问量，积分，等级，排名等信息
     :return:
     """
+    username = 'test'
     # 主页URL
-    URL = 'http://blog.csdn.net/leafage_m'
+    URL = 'http://blog.csdn.net/' + username
     # 得到返回的页面数据
     response = requests.get(URL).text
     # 转换为bs4
@@ -41,6 +42,7 @@ def save_to_file(result):
     :return:
     """
     json_info = json.dumps(result, ensure_ascii=False)
+    print(json_info)
 
 
 
