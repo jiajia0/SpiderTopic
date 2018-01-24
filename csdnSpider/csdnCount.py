@@ -2,10 +2,11 @@
 # @Author  : Leafage
 # @File    : csdnCount.py
 # @Software: PyCharm
-# @Describe: csdn统计每日博客访问量，每天十二点进行访问计算。
+# @Describe: csdn统计每日博客访问量，定时访问。
 import requests
 from bs4 import *
 import re
+import json
 
 
 def getCurrentCSDN():
@@ -25,9 +26,22 @@ def getCurrentCSDN():
     panel_result = get_panel_info(soup)
     # 得到文章分类的信息内容
     category_result = get_category(soup)
-    print(user_result)
-    print(panel_result)
-    print(category_result)
+
+    count_result = {}
+    count_result['个人信息'] = user_result
+    count_result['专栏信息'] = panel_result
+    count_result['文章信息'] = category_result
+    save_to_file(count_result)
+
+
+def save_to_file(result):
+    """
+    将当前统计的信息与之前的比较并保存
+    :param result:
+    :return:
+    """
+    json_info = json.dumps(result, ensure_ascii=False)
+
 
 
 def get_user_info(page_soup):
